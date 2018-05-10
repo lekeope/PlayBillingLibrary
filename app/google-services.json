@@ -1,0 +1,491 @@
+{
+  "project_info": {
+    "project_number": "369314897138",
+    "firebase_url": "https://studentpersonalmanager.firebaseio.com",
+    "project_id": "studentpersonalmanager",
+    "storage_bucket": "studentpersonalmanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:c3d967bd27f9514c",
+        "android_client_info": {
+          "package_name": "com.edgedevstudio.generate_imei"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-tfmak7dhpuets891nhi9foaviq0ucfu3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edgedevstudio.generate_imei",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:23a32c13ccb5c45d",
+        "android_client_info": {
+          "package_name": "com.edgedevstudio.rejectiontherapy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-rtf7fll3nlduuhou3ofr0ndulq09bupn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edgedevstudio.rejectiontherapy",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:dc107ee30e9369b8",
+        "android_client_info": {
+          "package_name": "com.edgedevstudio.testoutbilling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-jvjk9vpdivlklcoo8m2ti1pdr7ljetpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edgedevstudio.testoutbilling",
+            "certificate_hash": "20fdb889d332d2a9ee983619dea822cb3b1618a4"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:2278f0a3c53e8693",
+        "android_client_info": {
+          "package_name": "io.edgedev.appextractor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-o3n4gm8dkekbddm0h4n949fbl71kif68.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.appextractor",
+            "certificate_hash": "b9b345907e2a852f7223c2f5a764c110c485984f"
+          }
+        },
+        {
+          "client_id": "369314897138-ptlc03mt73glhcuhbsegfnnvvirp583n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.appextractor",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:3584a93dc258ef57",
+        "android_client_info": {
+          "package_name": "io.edgedev.compoundinterestcalc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-d1ce9sa1kmpjea24req8n9gd5bs9tq9p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.compoundinterestcalc",
+            "certificate_hash": "f3e7bc1c3af361f3ad258ae0caa713e6684f741a"
+          }
+        },
+        {
+          "client_id": "369314897138-u5oo0cjf426jde294ro0v6o2ajnaqjvr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.compoundinterestcalc",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:ed38f50087b9e563",
+        "android_client_info": {
+          "package_name": "io.edgedev.daily_soccer_odds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-u857qr7can8kpkbntt8a9niijdfp361t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.daily_soccer_odds",
+            "certificate_hash": "5e076fd002813fb1f770a016185718cf4dc4f1b9"
+          }
+        },
+        {
+          "client_id": "369314897138-pit95fsom6gb8n1fepgdmjv3dvhiqld8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.daily_soccer_odds",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:19c565a522c1b587",
+        "android_client_info": {
+          "package_name": "io.edgedev.friendlychatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-dtkcehqg27t6hsf0b82gk9s84revj5f4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.friendlychatapp",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:39836754553266fe",
+        "android_client_info": {
+          "package_name": "io.edgedev.investment_calc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-m5fdr8frk76n10436vaf5hr87bct11p5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.investment_calc",
+            "certificate_hash": "93f3fa8065ef7a4a84ff0282046833169cf03df9"
+          }
+        },
+        {
+          "client_id": "369314897138-l70vnvocavpet8di13j3i6tu8qmu2o3n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.investment_calc",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:ef6f7f23eb56ec50",
+        "android_client_info": {
+          "package_name": "io.edgedev.status_saver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-8te3pj1cm0c23062ps3m43ro564sf521.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.status_saver",
+            "certificate_hash": "ed282f1d2ce0b0fa0f7e71cf1db7d247ce02ad01"
+          }
+        },
+        {
+          "client_id": "369314897138-vq386i41s9apjoo63f18sv2rds6vsgus.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.status_saver",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369314897138:android:4732a9f4396edde1",
+        "android_client_info": {
+          "package_name": "io.edgedev.studentpersonalmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369314897138-v1ifduadpm5cs18rov7crkesf2p7ponn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.edgedev.studentpersonalmanager",
+            "certificate_hash": "0ec0f0cfc9f9f2c17ecf10cee378c4c41483e5c8"
+          }
+        },
+        {
+          "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkU4U1dBRHLFX6bvKJkow8hYpC5euhJMU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369314897138-bc8ssievjettb5ijo3nces349k4ufu0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
