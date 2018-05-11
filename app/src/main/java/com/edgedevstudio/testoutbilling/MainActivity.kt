@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
     var sub_yearly: Button? = null
     var billingManager: BillingManager? = null
 
-//    val REMOVE_ADS_PERMANENTLY_SKU_ID = "remove_ads"
-    val REMOVE_ADS_PERMANENTLY_SKU_ID = "android.test.purchased"
+    val REMOVE_ADS_PERMANENTLY_SKU_ID = "remove_ads"
     val DONATE_SKU_ID = "donate"
     val MONTH_SUB_SKU_ID = "monthly_sub"
     val YEAR_SUB_SKU_ID = "yearly_sub"
