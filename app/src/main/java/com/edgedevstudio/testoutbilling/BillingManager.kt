@@ -17,7 +17,7 @@ import java.security.spec.X509EncodedKeySpec
 class BillingManager(val activity: Activity, val billingUpdatesListener: BillingUpdatesListener) : PurchasesUpdatedListener {
     private val billingClient: BillingClient
     private val verifiedPurchases = ArrayList<Purchase>()
-    private val BASE_64_ENCODED_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg1XZVUmNAbDlsI3pNnZNgrBSO1O6C4fGyGw4kkEupzFc/EwBcDPAYv79R+SV2KnzGmUG/O56G+cUnozu8+9gUVc5ABG0jbKNDfgiVTCnz/iyLd/2Y+zua0TG/XVYePlifbwCfBGD/WX+dbY9vboGaArLtHvutztHuW4m8s6nA1QLkyx+Rdw1dIqQl3inWK6p0vPX/VP9WhlJusLB3Vk/BpTVVHzG67lnlU3oSIeNWS/egw2b44v/DIKN9q/r/aWCjLJquStLqaz4Hj6iCoC3GixwvCh5aJMMkbi9e57eRqqWG+LqMKE0wvoujGfqru/ynHwK1JPnZe3e638K3NxXJQIDAQAB"
+    private val BASE_64_ENCODED_PUBLIC_KEY = "your_base_64_encoded_public_key"
     private val SIGNATURE_ALGORITHM = "SHA1withRSA"
     private val KEY_FACTORY_ALGORITHM = "RSA"
 
