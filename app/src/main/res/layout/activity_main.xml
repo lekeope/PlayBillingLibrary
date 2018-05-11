@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,13 +13,6 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:context="com.edgedevstudio.testoutbilling.MainActivity">
-
-        <Button
-            android:id="@+id/action_btn"
-            android:layout_width="256dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Action" />
 
         <TextView
             android:id="@+id/textView"
@@ -31,6 +24,7 @@
             android:textColor="#000000"
             android:textSize="22sp"
             android:textStyle="bold"
+            android:layout_marginTop="-22dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +36,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Remove Ads" />
+            android:text="Remove Ads Permanently" />
 
         <Button
             android:id="@+id/donate_btn"
@@ -58,8 +52,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:text="Subscription Purchases"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Remove Ads Subscription Purchases"
             android:textColor="#000000"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -71,13 +66,13 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Remove Ads Monthly Subscription" />
+            android:text="One Month Subscription" />
 
         <Button
             android:id="@+id/yearly_sub_btn"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
-            android:text="Remove Ads Yearly Subscription" />
+            android:text="One Year Subscription" />
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView
@@ -87,6 +82,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="kjakfkajfkhaweiieuoaukkjwakfa" />
+        ads:adUnitId="ca-app-pub-9297690518647609/9381058081" />
 
 </RelativeLayout>

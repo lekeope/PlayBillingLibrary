@@ -5,21 +5,28 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.Purchase
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.BillingUpdatesListener {
     companion object {
         val TAG = "MainActivity"
     }
-    var buy_gas: Button? = null
-    var buy_car: Button? = null
+
+    var remove_ads_perm_btn: Button? = null
+    var donate_btn: Button? = null
     var sub_monthly: Button? = null
     var sub_yearly: Button? = null
     var billingManager: BillingManager? = null
 
-    val BUY_GAS_SKU_ID = "buy_gas"
-    val BUY_CAR_SKU_ID = "buy_car"
+//    val REMOVE_ADS_PERMANENTLY_SKU_ID = "remove_ads"
+    val REMOVE_ADS_PERMANENTLY_SKU_ID = "android.test.purchased"
+    val DONATE_SKU_ID = "donate"
     val MONTH_SUB_SKU_ID = "monthly_sub"
     val YEAR_SUB_SKU_ID = "yearly_sub"
 
@@ -27,13 +34,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buy_gas = findViewById(R.id.remove_ads_btn)
-        buy_car = findViewById(R.id.donate_btn)
+        val adView = findViewById<View>(R.id.adView) as AdView
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        remove_ads_perm_btn = findViewById(R.id.remove_ads_btn)
+        donate_btn = findViewById(R.id.donate_btn)
         sub_monthly = findViewById(R.id.monthly_sub_btn)
         sub_yearly = findViewById(R.id.yearly_sub_btn)
 
-        buy_gas?.setOnClickListener(this)
-        buy_car?.setOnClickListener(this)
+        remove_ads_perm_btn?.setOnClickListener(this)
+        donate_btn?.setOnClickListener(this)
         sub_monthly?.setOnClickListener(this)
         sub_yearly?.setOnClickListener(this)
 
@@ -43,8 +54,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.remove_ads_btn -> startPurchaseFlow(BUY_GAS_SKU_ID, BillingClient.SkuType.INAPP)
-            R.id.donate_btn -> startPurchaseFlow(BUY_CAR_SKU_ID, BillingClient.SkuType.INAPP)
+            R.id.remove_ads_btn -> startPurchaseFlow(REMOVE_ADS_PERMANENTLY_SKU_ID, BillingClient.SkuType.INAPP)
+            R.id.donate_btn -> startPurchaseFlow(DONATE_SKU_ID, BillingClient.SkuType.INAPP)
             R.id.monthly_sub_btn -> startPurchaseFlow(MONTH_SUB_SKU_ID, BillingClient.SkuType.SUBS)
             R.id.yearly_sub_btn -> startPurchaseFlow(YEAR_SUB_SKU_ID, BillingClient.SkuType.SUBS)
         }
@@ -69,17 +80,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
 
     }
 
-    override fun onConsumeFinished(token: String, responseCode: Int) {
-        Log.i(TAG, "onConsumeFinished")
-        Log.i(TAG, "BillingResponseCode = $responseCode")
-        Log.i(TAG, "token = $token")
-
+    override fun onConsumeFinished(responseCode: Int, token: String?) {
+        Log.i(TAG, "onConsumePurchase Successful > BillingResponseCode = $responseCode, token = $token")
+        showToast("Thank You for Donating!\nYou may consider donating a few more times to see consumption of In-app purchases in action")
     }
 
     override fun onQueryPurchasesFinished(purchases: List<Purchase>) {
-        Log.i(TAG, "onQueryPurchasesFinished, size of Purchases = ${purchases.size}")
+        Log.i(TAG, "onQueryPurchasesFinished, size of verified Purchases = ${purchases.size}")
         for (purchase in purchases) {
-            Log.i(TAG, purchase.toString())
+            if (DONATE_SKU_ID.equals(purchase.sku)) {
+                billingManager?.consumePurchase(purchase)
+            }else{
+                adView.visibility= View.GONE
+                showToast("Thank You for Purchase! Ads have been Eliminated!")
+            }
         }
+    }
+
+    fun showToast(msg : String, length : Int = Toast.LENGTH_LONG){
+        Toast.makeText(this, msg, length).show()
     }
 }
