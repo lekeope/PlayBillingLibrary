@@ -10,7 +10,6 @@ import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.Purchase
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
-import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.BillingUpdatesListener {
@@ -28,14 +27,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
     val DONATE_SKU_ID = "donate"
     val MONTH_SUB_SKU_ID = "monthly_sub"
     val YEAR_SUB_SKU_ID = "yearly_sub"
+    var adView : AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val adView = findViewById<View>(R.id.adView) as AdView
+        adView = findViewById<View>(R.id.adView) as AdView
         val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
+        adView?.loadAd(adRequest)
 
         remove_ads_perm_btn = findViewById(R.id.remove_ads_btn)
         donate_btn = findViewById(R.id.donate_btn)
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
         sub_yearly?.setOnClickListener(this)
 
         billingManager = BillingManager(this, this)
-
     }
 
     override fun onClick(view: View?) {
@@ -66,7 +65,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("MainActivity", "onDestroy")
         billingManager?.destroyBillingClient()
     }
 
@@ -74,9 +72,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
     override fun onPurchaseUpdated(purchases: List<Purchase>, responseCode: Int) {
         Log.i(TAG, "onPurchaseUpdated, responseCode = $responseCode, size of purchases = ${purchases.size}")
         for (purchase in purchases) {
-            Log.i(TAG, purchase.toString())
+            displayMsgForPurchaseCheck(purchase)
         }
-
     }
 
     override fun onConsumeFinished(responseCode: Int, token: String?) {
@@ -87,16 +84,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
     override fun onQueryPurchasesFinished(purchases: List<Purchase>) {
         Log.i(TAG, "onQueryPurchasesFinished, size of verified Purchases = ${purchases.size}")
         for (purchase in purchases) {
-            if (DONATE_SKU_ID.equals(purchase.sku)) {
-                billingManager?.consumePurchase(purchase)
-            }else{
-                adView.visibility= View.GONE
-                showToast("Thank You for Purchase! Ads have been Eliminated!")
-            }
+            displayMsgForPurchaseCheck(purchase)
         }
     }
 
-    fun showToast(msg : String, length : Int = Toast.LENGTH_LONG){
+    private fun displayMsgForPurchaseCheck(purchase: Purchase) {
+        if (DONATE_SKU_ID.equals(purchase.sku)) {
+            billingManager?.consumePurchase(purchase)
+        } else {
+            adView?.visibility = View.GONE
+            showToast("Thank You for Purchase! Ads have been Eliminated!")
+        }
+    }
+
+    private fun showToast(msg : String, length : Int = Toast.LENGTH_LONG){
         Toast.makeText(this, msg, length).show()
     }
 }

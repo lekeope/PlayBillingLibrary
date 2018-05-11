@@ -17,7 +17,7 @@ import java.security.spec.X509EncodedKeySpec
 class BillingManager(val activity: Activity, val billingUpdatesListener: BillingUpdatesListener) : PurchasesUpdatedListener {
     private val billingClient: BillingClient
     private val verifiedPurchases = ArrayList<Purchase>()
-    private val BASE_64_ENCODED_PUBLIC_KEY = "your_base_64_encoded_public_key"
+    private val BASE_64_ENCODED_PUBLIC_KEY = ""
     private val SIGNATURE_ALGORITHM = "SHA1withRSA"
     private val KEY_FACTORY_ALGORITHM = "RSA"
 
@@ -32,14 +32,14 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
         } else {
             billingClient.startConnection(object : BillingClientStateListener {
                 override fun onBillingSetupFinished(responseCode: Int) {
-                    Log.d(TAG, "onBillingSetupFinished, responseCode = $responseCode")
+                    Log.i(TAG, "onBillingSetupFinished, responseCode = $responseCode")
                     if (responseCode == BillingClient.BillingResponse.OK) {
                         runnable?.run()
                     }
                 }
 
                 override fun onBillingServiceDisconnected() {
-                    Log.d(TAG, "onBillingServiceDisconnected")
+                    Log.i(TAG, "onBillingServiceDisconnected")
                 }
             })
         }
@@ -66,7 +66,7 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
 
     fun queryPurchases() {
         val purchaseQueryRunnable = Runnable {
-            Log.d(TAG, "querying Purchases")
+            Log.i(TAG, "querying Purchases")
             verifiedPurchases.clear() // We cleared the verified purchase list, we'll talk more about this in sTAe 4
             val purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.INAPP) // querying for in app purchases
 
@@ -84,9 +84,9 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
                     purchasesResult.purchasesList.addAll(subscriptionResult.purchasesList)
                 }
             } else {
-                Log.d(TAG, "Subscription are not supported for this client!")
+                Log.i(TAG, "Subscription are not supported for this client!")
             }
-            Log.d(TAG, "found ${purchasesResult.purchasesList.size} unverified products")
+            Log.i(TAG, "found ${purchasesResult.purchasesList.size} unverified products")
             for (purchase in purchasesResult.purchasesList) {
                 handlePurchase(purchase)
             }
@@ -161,7 +161,7 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
             throw RuntimeException(e)
         } catch (e: InvalidKeySpecException) {
             val msg = "key specification: $e"
-            Log.d(TAG, msg)
+            Log.i(TAG, msg)
             BillingHelper.logWarn(TAG, msg)
             throw IOException(msg)
         }
