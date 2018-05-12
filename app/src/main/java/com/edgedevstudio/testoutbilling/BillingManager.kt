@@ -47,11 +47,8 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
     }
 
     override fun onPurchasesUpdated(responseCode: Int, purchases: MutableList<Purchase>?) {
-        verifiedPurchases.clear()
         if (responseCode == BillingClient.BillingResponse.OK && purchases != null) {
-            for (purchase in purchases) {
-                handlePurchase(purchase)
-            }
+            handlePurchases(purchases)
         }
         billingUpdatesListener.onPurchaseUpdated(verifiedPurchases, responseCode)
     }
@@ -67,12 +64,12 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
     fun queryPurchases() {
         val purchaseQueryRunnable = Runnable {
             Log.i(TAG, "querying Purchases")
-            verifiedPurchases.clear() // We cleared the verified purchase list, we'll talk more about this in sTAe 4
-            val purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.INAPP) // querying for in app purchases
+            val purchasesResult = ArrayList<Purchase>()
+            val inAppPurchasesResult = billingClient.queryPurchases(BillingClient.SkuType.INAPP) // querying for in app purchases
 
             // if response was good
-            if (purchasesResult.responseCode == BillingClient.BillingResponse.OK) {
-                purchasesResult.purchasesList.addAll(purchasesResult.purchasesList)
+            if (inAppPurchasesResult.responseCode == BillingClient.BillingResponse.OK) {
+                purchasesResult.addAll(inAppPurchasesResult.purchasesList)
             }
 
             // Not all clients support subscriptions so we have to check
@@ -81,15 +78,12 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
                 val subscriptionResult = billingClient.queryPurchases(BillingClient.SkuType.SUBS)
                 if (subscriptionResult.responseCode == BillingClient.BillingResponse.OK) {
                     //a succinct way of adding all elements to a list instead of using for each loop
-                    purchasesResult.purchasesList.addAll(subscriptionResult.purchasesList)
+                    purchasesResult.addAll(subscriptionResult.purchasesList)
                 }
-            } else {
-                Log.i(TAG, "Subscription are not supported for this client!")
             }
-            Log.i(TAG, "found ${purchasesResult.purchasesList.size} unverified products")
-            for (purchase in purchasesResult.purchasesList) {
-                handlePurchase(purchase)
-            }
+
+            Log.i(TAG, "found ${purchasesResult.size} unverified products")
+            handlePurchases(purchasesResult)
             billingUpdatesListener.onQueryPurchasesFinished(verifiedPurchases)
         }
         startServiceConnectionIfNeeded(purchaseQueryRunnable)
@@ -110,18 +104,20 @@ class BillingManager(val activity: Activity, val billingUpdatesListener: Billing
 
     }
 
-    private fun handlePurchase(purchase: Purchase) {
-        if (isValidSignature(purchase.originalJson, purchase.signature)) {
-            verifiedPurchases.add(purchase)
+    private fun handlePurchases(purchases: MutableList<Purchase>) {
+        verifiedPurchases.clear()
+        for (purchase in purchases) {
+            if (isValidSignature(purchase.originalJson, purchase.signature)) {
+                verifiedPurchases.add(purchase)
+            }
         }
     }
 
     private fun isValidSignature(signedData: String, signature: String): Boolean {
-
         val publicKey = generatePublicKey(BASE_64_ENCODED_PUBLIC_KEY)
 
+        val signatureBytes : ByteArray
 
-        val signatureBytes: ByteArray
         try {
             signatureBytes = Base64.decode(signature, Base64.DEFAULT)
         } catch (e: IllegalArgumentException) {

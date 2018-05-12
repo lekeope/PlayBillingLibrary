@@ -17,17 +17,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
         val TAG = "MainActivity"
     }
 
-    var remove_ads_perm_btn: Button? = null
-    var donate_btn: Button? = null
-    var sub_monthly: Button? = null
-    var sub_yearly: Button? = null
-    var billingManager: BillingManager? = null
+    private var remove_ads_perm_btn: Button? = null
+    private var donate_btn: Button? = null
+    private var sub_monthly: Button? = null
+    private var sub_yearly: Button? = null
+    private var billingManager: BillingManager? = null
 
-    val REMOVE_ADS_PERMANENTLY_SKU_ID = "remove_ads"
-    val DONATE_SKU_ID = "donate"
-    val MONTH_SUB_SKU_ID = "monthly_sub"
-    val YEAR_SUB_SKU_ID = "yearly_sub"
-    var adView : AdView? = null
+    private val REMOVE_ADS_PERMANENTLY_SKU_ID = "remove_ads"
+    private val DONATE_SKU_ID = "donate"
+    private val MONTH_SUB_SKU_ID = "monthly_sub"
+    private val YEAR_SUB_SKU_ID = "yearly_sub"
+    private var adView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,9 +71,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
 
     override fun onPurchaseUpdated(purchases: List<Purchase>, responseCode: Int) {
         Log.i(TAG, "onPurchaseUpdated, responseCode = $responseCode, size of purchases = ${purchases.size}")
-        for (purchase in purchases) {
-            displayMsgForPurchaseCheck(purchase)
-        }
+        displayMsgForPurchasesCheck(purchases)
     }
 
     override fun onConsumeFinished(responseCode: Int, token: String?) {
@@ -83,21 +81,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, BillingManager.B
 
     override fun onQueryPurchasesFinished(purchases: List<Purchase>) {
         Log.i(TAG, "onQueryPurchasesFinished, size of verified Purchases = ${purchases.size}")
+        displayMsgForPurchasesCheck(purchases)
+
+    }
+
+    private fun displayMsgForPurchasesCheck(purchases: List<Purchase>) {
         for (purchase in purchases) {
-            displayMsgForPurchaseCheck(purchase)
+            if (DONATE_SKU_ID.equals(purchase.sku)) {
+                billingManager?.consumePurchase(purchase)
+            } else {
+                adView?.visibility = View.GONE
+                showToast("Thank You for Purchase! Ads have been Eliminated!")
+            }
         }
     }
 
-    private fun displayMsgForPurchaseCheck(purchase: Purchase) {
-        if (DONATE_SKU_ID.equals(purchase.sku)) {
-            billingManager?.consumePurchase(purchase)
-        } else {
-            adView?.visibility = View.GONE
-            showToast("Thank You for Purchase! Ads have been Eliminated!")
-        }
-    }
-
-    private fun showToast(msg : String, length : Int = Toast.LENGTH_LONG){
+    private fun showToast(msg: String, length: Int = Toast.LENGTH_LONG) {
         Toast.makeText(this, msg, length).show()
     }
 }
